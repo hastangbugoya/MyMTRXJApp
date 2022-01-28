@@ -4,9 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.lifecycle.ViewModelProvider
-import com.jjrz.mymtrxjapplication.R
 import com.jjrz.mymtrxjapplication.databinding.ActivityMainBinding
-import com.jjrz.mymtrxjapplication.utility.DebugHelper.Companion.LogKitty
 import com.jjrz.mymtrxjapplication.viewmodel.MyViewModel
 
 class MainActivity : AppCompatActivity() {

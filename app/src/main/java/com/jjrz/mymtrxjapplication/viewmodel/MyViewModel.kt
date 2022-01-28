@@ -2,7 +2,7 @@ package com.jjrz.mymtrxjapplication.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.jjrz.mymtrxjapplication.utility.DebugHelper.Companion.LogKitty
+import com.jjrz.mymtrxjapplication.utility.DebugHelper.Companion.logKitty
 import com.jjrz.mymtrxjapplication.model.PostsResponseItem
 import com.jjrz.mymtrxjapplication.model.Summary
 import com.jjrz.mymtrxjapplication.model.UserResponseItem
@@ -33,7 +33,7 @@ class MyViewModel : ViewModel() {
                     compositeDisposable.clear()
                 }, { throwable ->
                     compositeDisposable.clear()
-                    LogKitty(throwable.toString())
+                    logKitty(throwable.toString())
                 })
         )
     }
@@ -49,7 +49,7 @@ class MyViewModel : ViewModel() {
                     compositeDisposable2.clear()
                 }, { throwable ->
                     compositeDisposable2.clear()
-                    LogKitty(throwable.toString())
+                    logKitty(throwable.toString())
                 })
         )
     }

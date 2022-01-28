@@ -3,7 +3,7 @@ package com.jjrz.mymtrxjapplication.view
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.jjrz.mymtrxjapplication.utility.DebugHelper.Companion.LogKitty
+import com.jjrz.mymtrxjapplication.utility.DebugHelper.Companion.logKitty
 import com.jjrz.mymtrxjapplication.databinding.ListItemBinding
 import com.jjrz.mymtrxjapplication.model.Summary
 
@@ -13,7 +13,7 @@ class MyListAdapter : RecyclerView.Adapter<MyListAdapter.ListViewHolder>() {
     fun updateList(f: MutableList<Summary>) {
         myDisplayList = f
         notifyDataSetChanged()
-        LogKitty("adapted list updated")
+//        logKitty("adapter list updated")
     }
 
     inner class ListViewHolder(binding: ListItemBinding) :
@@ -45,6 +45,6 @@ class MyListAdapter : RecyclerView.Adapter<MyListAdapter.ListViewHolder>() {
         myDisplayList.add(Summary("test3", "test3", "test3"))
         myDisplayList.add(Summary("test4", "test4", "test4"))
         notifyDataSetChanged()
-        LogKitty("myDisplayList size : $myDisplayList")
+        logKitty("myDisplayList size : $myDisplayList")
     }
 }
