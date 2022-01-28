@@ -62,12 +62,14 @@ class MyViewModel : ViewModel() {
 
     fun mergeList() {
         val tempList = mutableListOf<Summary>()
+        LogKitty("postsList size :  ${postsList.value?.size}")
         userList.value?.forEach { userResponseItem ->
-            postsList.value?.forEach {postItem ->
-                if (userResponseItem.id == postItem.id)
-                    tempList.apply {
-                        this.add(Summary(userResponseItem.company?.name, postItem.title, postItem.body))
-                    }
+            val list = postsList.value?.filter {
+                it.userId?.equals(userResponseItem.id) == true
+            }
+            LogKitty("Filtered list size : ${list?.size}")
+            list?.forEach {
+                tempList.add(Summary(userResponseItem.company?.name, it.title, it.body))
             }
         }
         summaryList.value = tempList
