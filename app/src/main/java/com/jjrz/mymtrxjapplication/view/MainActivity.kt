@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.getPosts()
         viewModel.getUsers()
-        adapter.addSample()
+//        adapter.addSample()
 
     }
 }
