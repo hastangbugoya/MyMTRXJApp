@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MyMTRXJApplication</string>
+    <string name="base_URL">https://jsonplaceholder.typicode.com/</string>
+</resources>
