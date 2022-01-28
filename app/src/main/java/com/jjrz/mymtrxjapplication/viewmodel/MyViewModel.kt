@@ -65,7 +65,7 @@ class MyViewModel : ViewModel() {
         LogKitty("postsList size :  ${postsList.value?.size}")
         userList.value?.forEach { userResponseItem ->
             val list = postsList.value?.filter {
-                it.userId?.equals(userResponseItem.id) == true
+                it.userId?.equals(userResponseItem.id) ?: false
             }
             LogKitty("Filtered list size : ${list?.size}")
             list?.forEach {
