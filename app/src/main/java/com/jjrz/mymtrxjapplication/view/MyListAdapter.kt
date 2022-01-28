@@ -45,6 +45,6 @@ class MyListAdapter : RecyclerView.Adapter<MyListAdapter.ListViewHolder>() {
         myDisplayList.add(Summary("test3", "test3", "test3"))
         myDisplayList.add(Summary("test4", "test4", "test4"))
         notifyDataSetChanged()
-        LogKitty("myDisplayList size : $myDisplayList.size")
+        LogKitty("myDisplayList size : $myDisplayList")
     }
 }
