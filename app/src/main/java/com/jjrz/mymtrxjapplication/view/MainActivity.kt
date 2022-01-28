@@ -8,7 +8,7 @@ import com.jjrz.mymtrxjapplication.databinding.ActivityMainBinding
 import com.jjrz.mymtrxjapplication.viewmodel.MyViewModel
 
 class MainActivity : AppCompatActivity() {
-    lateinit var viewModel : MyViewModel
+    private lateinit var viewModel : MyViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(LayoutInflater.from(this))
