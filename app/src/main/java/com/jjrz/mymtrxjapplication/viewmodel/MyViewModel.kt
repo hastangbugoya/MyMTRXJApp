@@ -15,7 +15,7 @@ import io.reactivex.schedulers.Schedulers
 class MyViewModel : ViewModel() {
 
     private val compositeDisposable = CompositeDisposable()
-
+    private val compositeDisposable2 = CompositeDisposable()
     private val userRetrofit = UserRetrofit()
     private val postsRetrofit = PostRetrofit()
     val userList = MutableLiveData<List<UserResponseItem>>()
@@ -39,16 +39,16 @@ class MyViewModel : ViewModel() {
     }
 
     fun getPosts() {
-        compositeDisposable.add(
+        compositeDisposable2.add(
             postsRetrofit.getPosts()
                 .subscribeOn(
                     Schedulers.io()
                 ).observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
                     postsList.postValue(response)
-                    compositeDisposable.clear()
+                    compositeDisposable2.clear()
                 }, { throwable ->
-                    compositeDisposable.clear()
+                    compositeDisposable2.clear()
                     LogKitty(throwable.toString())
                 })
         )
@@ -56,6 +56,7 @@ class MyViewModel : ViewModel() {
 
     override fun onCleared() {
         compositeDisposable.clear()
+        compositeDisposable2.clear()
         super.onCleared()
     }
 
