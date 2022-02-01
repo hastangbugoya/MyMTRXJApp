@@ -18,19 +18,19 @@ class MainActivity : AppCompatActivity() {
         val adapter = MyListAdapter()
         binding.mainRecyclerview.adapter = adapter
 
-        viewModel.postsList.observe(this) {
-//            LogKitty("postslist changed ${viewModel.postsList.value}")
-            if (viewModel.userList.value?.isNotEmpty() == true) {
-                viewModel.mergeList()
-            }
-        }
-
-        viewModel.userList.observe(this) {
-//            LogKitty("userlist changed ${viewModel.userList.value}")
-            if (viewModel.postsList.value?.isNotEmpty() == true) {
-                viewModel.mergeList()
-            }
-        }
+//        viewModel.postsList.observe(this) {
+////            LogKitty("postslist changed ${viewModel.postsList.value}")
+//            if (viewModel.userList.value?.isNotEmpty() == true) {
+//                viewModel.mergeList()
+//            }
+//        }
+//
+//        viewModel.userList.observe(this) {
+////            LogKitty("userlist changed ${viewModel.userList.value}")
+//            if (viewModel.postsList.value?.isNotEmpty() == true) {
+//                viewModel.mergeList()
+//            }
+//        }
 
         viewModel.summaryList.observe(this) {
 //            LogKitty("summarylist changed")

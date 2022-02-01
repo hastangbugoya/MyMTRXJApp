@@ -1,7 +1,11 @@
 package com.jjrz.mymtrxjapplication.viewmodel
 
+import android.app.Application
+import android.content.Context
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.android.material.internal.ContextUtils.getActivity
 import com.jjrz.mymtrxjapplication.utility.DebugHelper.Companion.logKitty
 import com.jjrz.mymtrxjapplication.model.PostsResponseItem
 import com.jjrz.mymtrxjapplication.model.Summary
@@ -21,6 +25,20 @@ class MyViewModel : ViewModel() {
     val userList = MutableLiveData<List<UserResponseItem>>()
     val postsList = MutableLiveData<List<PostsResponseItem>>()
     var summaryList = MutableLiveData<List<Summary>>()
+
+    init {
+        userList.observeForever {
+            if (postsList.value?.isNotEmpty() == true) {
+                mergeList()
+            }
+        }
+
+        postsList.observeForever {
+            if (userList.value?.isNotEmpty() == true) {
+                mergeList()
+            }
+        }
+    }
 
     fun getUsers() {
         compositeDisposable.add(
@@ -74,4 +92,6 @@ class MyViewModel : ViewModel() {
         }
         summaryList.value = tempList
     }
+    
+
 }
