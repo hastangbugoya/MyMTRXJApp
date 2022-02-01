@@ -19,7 +19,6 @@ import io.reactivex.schedulers.Schedulers
 class MyViewModel : ViewModel() {
 
     private val compositeDisposable = CompositeDisposable()
-    private val compositeDisposable2 = CompositeDisposable()
     private val userRetrofit = UserRetrofit()
     private val postsRetrofit = PostRetrofit()
     val userList = MutableLiveData<List<UserResponseItem>>()
@@ -48,25 +47,25 @@ class MyViewModel : ViewModel() {
                 ).observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
                     userList.postValue(response)
-                    compositeDisposable.clear()
+//                    compositeDisposable.clear()
                 }, { throwable ->
-                    compositeDisposable.clear()
+//                    compositeDisposable.clear()
                     logKitty(throwable.toString())
                 })
         )
     }
 
     fun getPosts() {
-        compositeDisposable2.add(
+        compositeDisposable.add(
             postsRetrofit.getPosts()
                 .subscribeOn(
                     Schedulers.io()
                 ).observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
                     postsList.postValue(response)
-                    compositeDisposable2.clear()
+//                    compositeDisposable.clear()
                 }, { throwable ->
-                    compositeDisposable2.clear()
+//                    compositeDisposable.clear()
                     logKitty(throwable.toString())
                 })
         )
@@ -74,11 +73,10 @@ class MyViewModel : ViewModel() {
 
     override fun onCleared() {
         compositeDisposable.clear()
-        compositeDisposable2.clear()
         super.onCleared()
     }
 
-    fun mergeList() {
+    private fun mergeList() {
         val tempList = mutableListOf<Summary>()
 //        LogKitty("postsList size :  ${postsList.value?.size}")
         userList.value?.forEach { userResponseItem ->
@@ -92,6 +90,4 @@ class MyViewModel : ViewModel() {
         }
         summaryList.value = tempList
     }
-    
-
 }
