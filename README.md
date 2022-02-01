@@ -1,0 +1,2 @@
+# MyMTRXJApp
+An Android app written in Kotlin to display collated information from two API calls.  One API provides a list of users and the second API provides a list of user posts.  The two lists are linked by the id field on the users list and userid in the posts.  The app will then display a list of summaries consisting of the user's company name, the post title and the post body.  The app uses JSON, a RecyclerView, RXJava, Retrofit, the MVVM architecture, Logcat, CardView, the Constraint layout, LiveData, GSON converter and data classes.
