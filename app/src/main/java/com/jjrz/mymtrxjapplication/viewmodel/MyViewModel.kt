@@ -1,17 +1,13 @@
 package com.jjrz.mymtrxjapplication.viewmodel
 
-import android.app.Application
-import android.content.Context
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.google.android.material.internal.ContextUtils.getActivity
-import com.jjrz.mymtrxjapplication.utility.DebugHelper.Companion.logKitty
 import com.jjrz.mymtrxjapplication.model.PostsResponseItem
 import com.jjrz.mymtrxjapplication.model.Summary
 import com.jjrz.mymtrxjapplication.model.UserResponseItem
 import com.jjrz.mymtrxjapplication.network.PostRetrofit
 import com.jjrz.mymtrxjapplication.network.UserRetrofit
+import com.jjrz.mymtrxjapplication.utility.DebugHelper.Companion.logKitty
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -21,8 +17,8 @@ class MyViewModel : ViewModel() {
     private val compositeDisposable = CompositeDisposable()
     private val userRetrofit = UserRetrofit()
     private val postsRetrofit = PostRetrofit()
-    val userList = MutableLiveData<List<UserResponseItem>>()
-    val postsList = MutableLiveData<List<PostsResponseItem>>()
+    private val userList = MutableLiveData<List<UserResponseItem>>()
+    private val postsList = MutableLiveData<List<PostsResponseItem>>()
     var summaryList = MutableLiveData<List<Summary>>()
 
     init {
