@@ -24,4 +24,5 @@ class PostRetrofit {
         @GET("posts")
         fun getPosts(): Single<PostsResponse>
     }
+
 }
